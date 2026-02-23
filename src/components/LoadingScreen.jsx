@@ -18,11 +18,11 @@ const LoadingScreen = ({ onEnter }) => {
     // Tambahin class "fade-out" kalau state-nya aktif
     <div className={`loading-wrapper ${isFadingOut ? 'fade-out' : ''}`} onClick={handleClick}>
       <div className="logo-container">
-        <h1 className="text-logo">MOLTIC!</h1>
+        <h1 className="text-logo">MOLTOC!</h1>
       </div>
       
       <div className="enter-instruction">
-        <p>CLICK ANYWHERE TO ENTER</p>
+        <p>CLICK ANYWHERE YOU WANT BRO</p>
       </div>
     </div>
   );
