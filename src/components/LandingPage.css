@@ -1,0 +1,215 @@
+/* --- Update Bagian Atas LandingPage.css --- */
+
+/* Kita bikin animasi baru yang lebih dramatis */
+@keyframes dramaticFadeIn {
+  0% {
+    opacity: 0;
+    /* Mulai agak kecil sedikit biar ada efek "muncul" */
+    transform: scale(0.98) translateY(20px); 
+    filter: blur(10px); /* Sedikit blur di awal biar smooth */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.layout-container {
+  /* Ganti nama animasinya & perpanjang durasinya jadi 1.5 detik */
+  /* Pake 'cubic-bezier' biar gerakannya "mahal" (cepet di awal, ngerem di akhir) */
+  animation: dramaticFadeIn 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  /* Sisanya sama kayak sebelumnya... */
+  display: flex;
+  flex-direction: column; 
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  overflow: hidden;
+  position: relative; /* Pastikan position relative biar z-index jalan */
+  z-index: 1;
+}
+
+/* ... SISA CSS KE BAWAH BIARIN AJA ... */
+
+/* Layout Utama: Atas ke Bawah */
+.layout-container {
+  display: flex;
+  flex-direction: column; 
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* --- TOP NAVBAR STYLES --- */
+.top-navbar {
+  display: flex;
+  justify-content: space-between; /* Pisah Kiri, Tengah, Kanan */
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #050505;
+  border-bottom: 1px solid #1a1a1a;
+  height: 80px; 
+  z-index: 50; /* Biar navbar selalu di atas elemen lain */
+}
+
+/* Kiri: Logo */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-logo-img {
+  width: 32px;
+  height: 32px;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: white;
+}
+
+/* Tengah: Menu Navigasi */
+.navbar-center {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #888;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.nav-item:hover, .nav-item.active {
+  background-color: #161616;
+  color: white;
+}
+
+/* Kanan: Actions */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contract-box-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #111;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #222;
+}
+
+.contract-label {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.contract-address {
+  color: #fff;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.btn-connect-navbar {
+  background-color: #5eead4;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.btn-connect-navbar:hover {
+  background-color: #4cdbb9;
+  transform: scale(1.02);
+}
+
+/* --- MAIN CONTENT STYLES --- */
+.main-content {
+  flex: 1; /* Penuhi sisa layar di bawah navbar */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 10vh;
+  background-color: #080808;
+}
+
+.hero-text-section {
+  text-align: center;
+  max-width: 600px;
+  z-index: 10;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero-subtitle {
+  color: #888;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.btn-connect-main {
+  background-color: #5eead4;
+  color: #000;
+  border: none;
+  padding: 12px 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.btn-connect-main:hover {
+  background-color: #4cdbb9;
+  transform: scale(1.02);
+}
+
+/* --- Update di LandingPage.css bagian bawah --- */
+
+/* Container Gambar Buat Mascott / BG */
+.hero-image-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Lebar container full */
+  height: 65vh; /* Tinggi area gambar (bisa disesuaikan, misal 70vh kalau kurang tinggi) */
+  display: flex;
+  align-items: flex-end; /* Gambar nempel di bawah */
+  justify-content: center;
+  z-index: 1;
+  overflow: hidden; /* Penting: biar kalau digeser-geser nggak ngerusak layout */
+}
+
+.bg-illustration {
+  width: 100%;  /* PAKSA LEBAR JADI 100% */
+  height: 100%; /* PAKSA TINGGI JADI 100% dari containernya */
+  object-fit: cover; /* KUNCI: Biar gambar nge-crop otomatis dan nggak gepeng saat ditarik full */
+  object-position: center bottom; /* Fokus crop di tengah bawah biar monsternya kelihatan */
+}
